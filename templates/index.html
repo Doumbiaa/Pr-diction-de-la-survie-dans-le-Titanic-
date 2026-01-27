@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Prédiction Titanic</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            color: #0072ff;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #0072ff;
+        }
+
+        select, input[type="submit"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin: 8px 0 20px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #0072ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #ff4c4c;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Prédiction de la survie sur le Titanic</h1>
+
+    <form action="/predict" method="post">
+
+        <!-- Classe -->
+        <label>Classe</label>
+        <select name="Pclass" required>
+            <option value="1">1ère classe</option>
+            <option value="2">2ème classe</option>
+            <option value="3">3ème classe</option>
+        </select>
+
+        <!-- Sexe -->
+        <label>Sexe</label>
+        <select name="Sex_male" required>
+            <option value="0">Femme</option>
+            <option value="1">Homme</option>
+        </select>
+
+        <!-- Embarquement à Southampton -->
+        <label>Embarquement à Southampton</label>
+        <select name="Embarked_S" required>
+            <option value="0">Non</option>
+            <option value="1">Oui</option>
+        </select>
+
+        <!-- Tranche d'âge -->
+        <label>Tranche d'âge</label>
+        <select name="TrancheAge" required>
+            <option value="[0,12]">0 à 12 ans</option>
+            <option value="[13,18]">13 à 18 ans</option>
+            <option value="[19,35]">19 à 35 ans</option>
+            <option value="[36,60]">36 à 60 ans</option>
+            <option value="[61,80]">61 à 80 ans</option>
+        </select>
+
+        <input type="submit" value="Prédire">
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</div>
+</body>
+</html>
