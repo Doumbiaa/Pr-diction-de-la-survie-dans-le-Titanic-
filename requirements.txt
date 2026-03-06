@@ -1,24 +1,24 @@
-# Serveur Web & Framework
+# Web server
 Flask==3.1.2
 gunicorn==23.0.0
 Werkzeug==3.1.5
 Jinja2==3.1.6
 itsdangerous==2.2.0
 MarkupSafe==3.0.3
-blinker==1.9.0
 click==8.3.1
+blinker==1.9.0
+colorama==0.4.6
 
-# Analyse de données 
-pandas==2.2.3
-numpy==2.0.2
+# Machine Learning
+scikit-learn==1.8.0
+numpy==2.4.1
+scipy==1.17.0
+joblib==1.5.3
+threadpoolctl==3.6.0
+
+# Data
+pandas==2.3.3
 python-dateutil==2.9.0.post0
 pytz==2025.2
-six==1.17.0
 tzdata==2025.3
-
-# VISUALISATION 
-matplotlib==3.9.0
-networkx==3.3
-
-# MACHINE LEARNING
-scikit-learn==1.5.2
+six==1.17.0
